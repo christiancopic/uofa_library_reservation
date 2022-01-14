@@ -10,8 +10,10 @@ import time
 def setup():
     # Chrome Driver File Location
     ser = Service('./driver/chromedriver.exe')
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     # Creates Driver
-    driver = webdriver.Chrome(service=ser)
+    driver = webdriver.Chrome(service=ser, options=options)
 
     # Wait Time (sec)
     wait_time_load = 30

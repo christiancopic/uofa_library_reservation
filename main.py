@@ -1,7 +1,7 @@
 import time
 
 from setup import setup
-from room_selection import room_selection
+from room_selection import room_selection, confirm
 from login import login
 from datetime import datetime
 
@@ -26,6 +26,9 @@ def book_room():
     if login_error:
         return login_error
 
+    #Confirm Reservation
+    confirm(driver)
+
 
 def alarm_decor(func):
     def wrapper():
@@ -41,6 +44,10 @@ def alarm_decor(func):
     return wrapper()
 
 
-main()
+
+
+
+if __name__ == "__main__":
+    main()
 
 

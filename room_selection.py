@@ -2,7 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from _datetime import datetime as dt
+from datetime import datetime as dt
 import re
 
 
@@ -157,3 +157,12 @@ def time_slot_calculation(user_times):
         blocks = blocks + 1
 
     return blocks
+
+def confirm(driver):
+    submit_button = driver.find_element(By.CSS_SELECTOR, 'button#s-lc-eq-bform-submit')
+    submit_button.click()
+    
+    
+    #<button class="btn btn-primary" type="submit" id="s-lc-eq-bform-submit">
+    #   Complete reservation
+    #</button>

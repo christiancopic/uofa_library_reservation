@@ -15,7 +15,7 @@ def login(driver):
     if duopush_error:
         return duopush_error
 
-    return False
+    return False, driver
 
 
 def webauth_login(driver):
