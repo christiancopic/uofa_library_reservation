@@ -12,22 +12,28 @@ def main():
 
 def book_room():
     # Setup
-    setup_error, driver = setup()
-    if setup_error:
-        return setup_error
+    for iter in range(4,122):
+        setup_error, driver = setup(iter)
+        if setup_error == 'Next Available Button':
+            break
+        elif setup_error:
+            print(iter)
+            return setup_error
 
-    # Room Selection
-    room_error, driver = room_selection(driver)
-    if room_error:
-        return room_error
+        # Room Selection
+        room_error, driver = room_selection(driver,iter)
+        if room_error:
+            print(iter)
+            return room_error
 
-    # Login
-    login_error, driver = login(driver)
-    if login_error:
-        return login_error
+        # Login
+        login_error, driver = login(driver)
+        if login_error:
+            print(iter)
+            return login_error
 
-    #Confirm Reservation
-    confirm(driver)
+        #Confirm Reservation
+        confirm(driver)
 
 
 def alarm_decor(func):

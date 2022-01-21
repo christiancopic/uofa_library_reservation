@@ -6,7 +6,7 @@ from datetime import datetime as dt
 import re
 
 
-def room_selection(driver):
+def room_selection(driver,iter):
     # Generates a room list
     room_list = room_list_generator(driver)
 
